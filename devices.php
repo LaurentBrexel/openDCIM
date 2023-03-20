@@ -671,7 +671,6 @@
 					// Checkboxes don't work quite like normal inputs
 					$dev->BackSide=(isset($_POST['BackSide']))?($_POST['BackSide']=="on")?1:0:0;
 					$dev->HalfDepth=(isset($_POST['HalfDepth']))?($_POST['HalfDepth']=="on")?1:0:0;
-					$dev->Reservation=(isset($_POST['Reservation']))?($_POST['Reservation']=="on")?1:0:0;
 					$dev->SNMPFailureCount=(isset($_POST['SNMPFailureCount']))?$_POST['SNMPFailureCount']:0;
 					// Used by CDU type devices only
 					if($dev->DeviceType=='CDU'){
@@ -1678,12 +1677,6 @@ print "		var dialog=$('<div>').prop('title',\"".__("Verify Delete Device")."\").
 			hdn_cabinetid.parent('div').text(rack.text()).append(hdn_cabinetid);
 		}).trigger('change');
 
-		$('#Reservation').change(function(){
-			if(!$(this).prop("checked")){
-				var d=new Date();
-				$('#InstallDate').datepicker("setDate",d);
-			}
-		});
 		// Delete device confirmation dialog
 		$('button[value="Delete"]').click(function(e){
 					var form=$(this).parents('form');
